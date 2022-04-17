@@ -10,6 +10,10 @@ The default CSV file to select when asked for the user input is `team_orko.csv` 
 
 (You can always select the other CSV file if you want to...)
 
+## VIRTUAL ENVIRONMENT
+
+Go to the folder `env` by doing `cd env` then do `source bin/activate` to activate the virtual enviroment and please go back to root directory afterwards, by doing `cd ..`.
+
 ## DOCKER SETUP
 
 Please download `docker` desktop here: https://www.docker.com/products/docker-desktop/
