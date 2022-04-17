@@ -22,7 +22,7 @@ To run this is application in a single line of code from the root folder, run:
 
 Eg.: `docker build -t csv_parser . && docker run -it csv_parser`
 
-# EXTRA COMMANDS
+## EXTRA COMMANDS
 
 List all images: `docker images`
 
@@ -33,3 +33,11 @@ Stop a specific container: `docker rm -f <CONTAINER ID>`
 If you are unable to stop the container, please run : `docker rm -f $(docker ps -a -q)` to remove stop all containers
 
 Remove all images and containers: `docker system prune -a` to stop all containers and all unused images
+
+## TO DO: some EDGE CASES to consider to improve the CSV parsing functionality
+
+- Check for trailing spaces at the beginning and end of the file
+- Check the delimiter
+- Possible duplicate file names in the file directory
+- A generator can be used while parsing the CSV file for memory efficiency instead of the for loop
+...
