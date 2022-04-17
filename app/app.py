@@ -5,9 +5,9 @@ from pprint import pprint
 from typing import Dict, List
 
 
-# the folder that contain the CSV
-# files to work with
-csv_folder = os.getcwd() + "/data/"
+# folder that contain
+# the csv file data to work with
+csv_folder = os.getcwd() + "/app/data/"
 
 
 def handler() -> List[Dict[str, str]]:

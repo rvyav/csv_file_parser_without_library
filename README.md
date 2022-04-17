@@ -13,3 +13,23 @@ The default CSV file to select when asked for the user input is `team_orko.csv` 
 ## DOCKER SETUP
 
 Please download `docker` desktop here: https://www.docker.com/products/docker-desktop/
+
+## LAUNCH THE APPLICATION
+
+To run this is application in a single line of code from the root folder, run: 
+
+`docker build -t <CONTAINER NAME> . && docker run -it <CONTAINER NAME>`
+
+Eg.: `docker build -t csv_parser . && docker run -it csv_parser`
+
+# EXTRA COMMANDS
+
+List all images: `docker images`
+
+List all containers: `docker container ls -a`
+
+Stop a specific container: `docker rm -f <CONTAINER ID>`
+
+If you are unable to stop the container, please run : `docker rm -f $(docker ps -a -q)` to remove stop all containers
+
+Remove all images and containers: `docker system prune -a` to stop all containers and all unused images
