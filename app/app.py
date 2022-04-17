@@ -1,3 +1,4 @@
+import operator
 import os
 
 from pprint import pprint
@@ -38,7 +39,8 @@ def handler() -> List[Dict[str, str]]:
             if user_input in selection.keys():
                 for key, value in selection.items():
                     if user_input == key:
-                        return value
+                        result = parse_file(csv_folder + value)
+                        return result
                 break
         else:
             continue
@@ -47,13 +49,49 @@ def handler() -> List[Dict[str, str]]:
         print("Wrong value, try again \n")
 
 
+def parse_file(csv_file: str) -> List[Dict[str, str]]:
+    with open(csv_file, encoding="utf-8") as file:
+        results = []
+        
+        for values in file:
+            if values.endswith("\n"):
+                value = values.rstrip("\n")
+            words = value.split(",")
+            
+            results.append((words))
+
+        headers = _remove_trailing_space(results[0])
+        content = results[1:]
+
+        # create a readable list of dictionnaries
+        # made of columns names and their corresponding
+        # values for each row
+        data = [dict(zip(headers, value)) for value in content]
+
+        while data:
+            user_column_input = input("Select a Column to sort: {}\n".format(headers))
+
+            if user_column_input in headers:
+                # sort column in descending string order
+                data.sort(key=operator.itemgetter(user_column_input), reverse=True)
+                return data
+
+            _clean_terminal()
+            print("Wrong value, try again \n")
+
+
 # PEP-8, the Python Style Guide for helper functions
 # https://peps.python.org/pep-0008/#naming-conventions
 def _clean_terminal():
     return os.system("clear")
 
 
+def _remove_trailing_space(arr: List[str]) -> List[str]:
+    """Make sure the string have no trailing spaces."""
+    return [value.strip(" ") for value in arr]
+
+
 if __name__ == "__main__":
     result = handler()
-    # humand readable result output
+    # human readable result output
     pprint(result)
