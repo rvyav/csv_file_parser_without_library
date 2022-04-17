@@ -22,6 +22,8 @@ To run this is application in a single line of code from the root folder, run:
 
 Eg.: `docker build -t csv_parser . && docker run -it csv_parser`
 
+After the application is terminated, you can re-run it via: `docker run -it <CONTAINER NAME>`
+
 ## EXTRA COMMANDS
 
 List all images: `docker images`
@@ -41,3 +43,7 @@ Remove all images and containers: `docker system prune -a` to stop all container
 - Possible duplicate file names in the file directory
 - A generator can be used while parsing the CSV file for memory efficiency instead of the for loop
 ...
+
+## GHERKIN ISSUE
+
+Something is wrong with the `GHERKIN` package, the import is failing therefore can't be used.

@@ -34,7 +34,7 @@ def handler() -> List[Dict[str, str]]:
             user_input = int(input("Select a KEY to process the file, select a NUMBER from choice(s): "))
         except:
             continue
-        
+
         if isinstance(user_input, int):
             if user_input in selection.keys():
                 for key, value in selection.items():
@@ -52,12 +52,12 @@ def handler() -> List[Dict[str, str]]:
 def parse_file(csv_file: str) -> List[Dict[str, str]]:
     with open(csv_file, encoding="utf-8") as file:
         results = []
-        
+
         for values in file:
             if values.endswith("\n"):
                 value = values.rstrip("\n")
             words = value.split(",")
-            
+
             results.append((words))
 
         headers = _remove_trailing_space(results[0])
