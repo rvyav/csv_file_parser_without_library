@@ -5,16 +5,16 @@ from pprint import pprint
 from typing import Dict, List
 
 
-# folder that contain
+# folder that include
 # the csv file data to work with
-csv_folder = os.getcwd() + "/app/data/"
+CSV_FOLDER = os.getcwd() + "/app/data/" if os.environ.get("SECRET_ENV") == "docker" else os.getcwd() + "/data/"
 
 
 def handler() -> List[Dict[str, str]]:
     """
     The function accept an input in CSV file
     """
-    files = [file for file in os.listdir(csv_folder) if file.endswith(".csv")]
+    files = [file for file in os.listdir(CSV_FOLDER) if file.endswith(".csv")]
 
     if not files:
         return "No CSV file found in the data directory"
@@ -25,7 +25,6 @@ def handler() -> List[Dict[str, str]]:
     # to choose from based on what is found
     selection = dict(zip(files_range, files))
 
-    # make sure `files` array is not empty
     while files:
         print("Current file(s) found: {}".format(selection))
         print("Your current KEY choice(s): {}".format(list(selection.keys())))
@@ -39,7 +38,7 @@ def handler() -> List[Dict[str, str]]:
             if user_input in selection.keys():
                 for key, value in selection.items():
                     if user_input == key:
-                        result = parse_file(csv_folder + value)
+                        result = parse_file(CSV_FOLDER + value)
                         return result
                 break
         else:
@@ -93,5 +92,4 @@ def _remove_trailing_space(arr: List[str]) -> List[str]:
 
 if __name__ == "__main__":
     result = handler()
-    # human readable result output
     pprint(result)

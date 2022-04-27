@@ -3,6 +3,7 @@ FROM python:3.8
 # set enviroment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV SECRET_ENV=docker
 
 WORKDIR /app/
 

@@ -1,4 +1,4 @@
-# WELCOME TO CSV PARSER WITHOUT LIBRARY
+# CSV PARSER WITHOUT LIBRARY
 
 ## GOAL
 
@@ -10,15 +10,13 @@ The default CSV file to select when asked for the user input is `team_orko.csv` 
 
 (You can always select the other CSV file if you want to...)
 
-## VIRTUAL ENVIRONMENT
-
-Go to the folder `env` by doing `cd env` then do `source bin/activate` to activate the virtual enviroment and please go back to root directory afterwards, by doing `cd ..`.
-
 ## DOCKER SETUP
 
 Please download `docker` desktop here: https://www.docker.com/products/docker-desktop/
 
 ## LAUNCH THE APPLICATION
+
+### DOCKER 
 
 To run this is application in a single line of code from the root folder, run: 
 
@@ -27,6 +25,10 @@ To run this is application in a single line of code from the root folder, run:
 Eg.: `docker build -t csv_parser . && docker run -it csv_parser`
 
 After the application is terminated, you can re-run it via: `docker run -it <CONTAINER NAME>`
+
+### VIRTUAL ENV
+
+Make sure to launch the app from `/app/` folder
 
 ## EXTRA COMMANDS
 
